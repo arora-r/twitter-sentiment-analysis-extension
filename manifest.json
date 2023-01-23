@@ -1,0 +1,30 @@
+{
+  "description": "Do brand analysis in Twitter",
+  "manifest_version": 2,
+  "name": "Brand Sentiment Analysis in Twitter",
+  "version": "1.0",
+  "content_security_policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'",
+  "permissions": [
+    "*://*/*",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://twitter.com/*"
+      ],
+      "js": [
+        "content_scripts/tweet-sentiment.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Brand analysis in Twitter"
+  },
+  "background": {
+    "scripts": [
+      "background_scripts/background.js"
+    ]
+  }
+}
